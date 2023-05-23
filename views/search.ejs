@@ -1,0 +1,17 @@
+<h1>List specified Music Director songs sung by specified Singer</h1>
+<table border="1px">
+    <tr>
+        <th>Song Name</th>
+        <th>Film</th>
+        <th>Music Director</th>
+        <th>Singer</th>
+    </tr>
+    <% songs.forEach(song => { %>
+        <tr>
+            <td><%= song.songname %></td>  
+            <td><%= song.film %></td>
+            <td><%= song.director %></td>
+            <td><%= song.singer %></td>
+        </tr>
+    <% }); %>
+</table>

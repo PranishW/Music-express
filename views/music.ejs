@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Music Form</h1>
+    <form action="/" method="post">
+        <div>
+            Song Name
+            <input type="text" name="songname" required placeholder="Enter song name">
+        </div>
+        <div>
+            film
+            <input type="text" name="film" required placeholder="Enter film name">
+        </div>
+        <div>
+            Music Director
+            <input type="text" name="director" required placeholder="Enter music director">
+        </div>
+        <div>
+            Singer
+            <input type="text" name="singer" required placeholder="Enter singer ">
+        </div>
+        <button type="submit"> Submit</button>
+    </form>
+    <div>
+        <h1>Song Details Table</h1>
+        <table border="1px">
+            <thead>
+                <th>Song Name</th>
+                <th>Film</th>
+                <th>Music Director</th>
+                <th>Singer</th>
+            </thead>
+            <tbody>
+                <% songs.forEach(song =>{%>
+                    <tr>
+                        <td><%= song.songname %></td>
+                        <td><%= song.film %></td>
+                        <td><%= song.director %></td>
+                        <td><%= song.singer %></td>
+                        <td>
+                            <form action="/delete/<%= song._id %>">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <%})%>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h1> Total Songs : <%= songs.length %></h1>
+        <% songs.forEach(song => {%>
+            <ul>
+                <li><%= song %></li>
+            </ul>
+        <%}); %>
+    </div>
+</body>
+</html>
